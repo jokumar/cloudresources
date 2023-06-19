@@ -1,5 +1,6 @@
 {
   "AppSyncApiName": "bloggingapp",
   "DynamoDBBillingMode": "PAY_PER_REQUEST",
-  "DynamoDBEnableServerSideEncryption": false
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": "eu-west-1_L8Sws2BcW"
 }

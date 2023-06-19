@@ -1,2 +1,79 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~@aws-amplify/ui-angular/theme.css';
+
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .header {
+    background-color: teal;
+    padding: 20px;
+    color: white;
+  }
+  
+  .header h1 {
+    margin: 0;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  nav li {
+    margin-left: 20px;
+  }
+  
+  nav a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .content {
+    padding: 20px;
+  }
+  
+  .banner {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .banner h2 {
+    margin-top: 0;
+  }
+  
+  .cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: teal;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+  }
+  
+  .blog-section {
+    margin-bottom: 40px;
+  }
+  
+  .blog-post {
+    margin-bottom: 20px;
+  }
+  
+  .read-more {
+    color: teal;
+    text-decoration: none;
+  }
+  
+  .footer {
+    background-color: teal;
+    padding: 20px;
+    text-align: center;
+    color: white;
+  }
+  

@@ -4,8 +4,17 @@
     "apiName": "bloggingapp",
     "serviceName": "AppSync",
     "defaultAuthType": {
-      "mode": "API_KEY",
-      "expirationTime": 7
-    }
+      "mode": "AMAZON_COGNITO_USER_POOLS",
+      "cognitoUserPoolId": "authbloggingapp3ec5fceb"
+    },
+    "conflictResolution": {},
+    "additionalAuthTypes": [
+      {
+        "mode": "API_KEY",
+        "expirationTime": 365,
+        "apiKeyExpirationDate": "2024-06-18T11:55:43.302Z",
+        "keyDescription": ""
+      }
+    ]
   }
 }

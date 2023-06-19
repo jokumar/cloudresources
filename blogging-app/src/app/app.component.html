@@ -1,12 +1,32 @@
 
-<router-outlet></router-outlet>
+<div class="content">
+
 <amplify-authenticator>
   <ng-template
-    amplifySlot="authenticated"
-    let-user="user"
-    let-signOut="signOut"
-  >
+  amplifySlot="authenticated"
+  let-user="user"
+  let-signOut="signOut"
+>
+  <section class="banner">
+    <div > <button class = "signout" (click)="signOut()" >Sign Out</button></div>
+    <h2>Welcome  {{ user.username }} to our Social Blogging Site</h2>
+ 
+    <p>Connect, share, and explore!</p>
+    <a href="#" class="cta-button">Get Started</a>
+  </section>
+ 
+  
   <app-blogs></app-blogs>
-    <button (click)="signOut()">Sign Out</button>
   </ng-template>
 </amplify-authenticator>
+
+</div>
+
+
+ 
+
+
+<router-outlet></router-outlet>
+
+
+

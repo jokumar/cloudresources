@@ -6,13 +6,15 @@ mutation CreateBlog(
   createBlog(input: $input, condition: $condition) {
     id
     name
-    posts {
+    createdBy
+    comments {
       items {
         id
-        title
+        createdBy
+        content
         createdAt
         updatedAt
-        blogPostsId
+        blogCommentsId
       }
       nextToken
     }
@@ -27,13 +29,15 @@ mutation UpdateBlog(
   updateBlog(input: $input, condition: $condition) {
     id
     name
-    posts {
+    createdBy
+    comments {
       items {
         id
-        title
+        createdBy
+        content
         createdAt
         updatedAt
-        blogPostsId
+        blogCommentsId
       }
       nextToken
     }
@@ -48,111 +52,20 @@ mutation DeleteBlog(
   deleteBlog(input: $input, condition: $condition) {
     id
     name
-    posts {
-      items {
-        id
-        title
-        createdAt
-        updatedAt
-        blogPostsId
-      }
-      nextToken
-    }
-    createdAt
-    updatedAt
-  }
-}
-mutation CreatePost(
-  $input: CreatePostInput!
-  $condition: ModelPostConditionInput
-) {
-  createPost(input: $input, condition: $condition) {
-    id
-    title
-    blog {
-      id
-      name
-      posts {
-        nextToken
-      }
-      createdAt
-      updatedAt
-    }
+    createdBy
     comments {
       items {
         id
+        createdBy
         content
         createdAt
         updatedAt
-        postCommentsId
+        blogCommentsId
       }
       nextToken
     }
     createdAt
     updatedAt
-    blogPostsId
-  }
-}
-mutation UpdatePost(
-  $input: UpdatePostInput!
-  $condition: ModelPostConditionInput
-) {
-  updatePost(input: $input, condition: $condition) {
-    id
-    title
-    blog {
-      id
-      name
-      posts {
-        nextToken
-      }
-      createdAt
-      updatedAt
-    }
-    comments {
-      items {
-        id
-        content
-        createdAt
-        updatedAt
-        postCommentsId
-      }
-      nextToken
-    }
-    createdAt
-    updatedAt
-    blogPostsId
-  }
-}
-mutation DeletePost(
-  $input: DeletePostInput!
-  $condition: ModelPostConditionInput
-) {
-  deletePost(input: $input, condition: $condition) {
-    id
-    title
-    blog {
-      id
-      name
-      posts {
-        nextToken
-      }
-      createdAt
-      updatedAt
-    }
-    comments {
-      items {
-        id
-        content
-        createdAt
-        updatedAt
-        postCommentsId
-      }
-      nextToken
-    }
-    createdAt
-    updatedAt
-    blogPostsId
   }
 }
 mutation CreateComment(
@@ -161,26 +74,21 @@ mutation CreateComment(
 ) {
   createComment(input: $input, condition: $condition) {
     id
-    post {
+    createdBy
+    blog {
       id
-      title
-      blog {
-        id
-        name
-        createdAt
-        updatedAt
-      }
+      name
+      createdBy
       comments {
         nextToken
       }
       createdAt
       updatedAt
-      blogPostsId
     }
     content
     createdAt
     updatedAt
-    postCommentsId
+    blogCommentsId
   }
 }
 mutation UpdateComment(
@@ -189,26 +97,21 @@ mutation UpdateComment(
 ) {
   updateComment(input: $input, condition: $condition) {
     id
-    post {
+    createdBy
+    blog {
       id
-      title
-      blog {
-        id
-        name
-        createdAt
-        updatedAt
-      }
+      name
+      createdBy
       comments {
         nextToken
       }
       createdAt
       updatedAt
-      blogPostsId
     }
     content
     createdAt
     updatedAt
-    postCommentsId
+    blogCommentsId
   }
 }
 mutation DeleteComment(
@@ -217,25 +120,20 @@ mutation DeleteComment(
 ) {
   deleteComment(input: $input, condition: $condition) {
     id
-    post {
+    createdBy
+    blog {
       id
-      title
-      blog {
-        id
-        name
-        createdAt
-        updatedAt
-      }
+      name
+      createdBy
       comments {
         nextToken
       }
       createdAt
       updatedAt
-      blogPostsId
     }
     content
     createdAt
     updatedAt
-    postCommentsId
+    blogCommentsId
   }
 }

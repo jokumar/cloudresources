@@ -6,7 +6,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BlogsComponent } from './blogs/blogs.component';
-
+import awsconfig from '../aws-exports';
+import { Amplify, Auth } from 'aws-amplify';
+Amplify.configure(awsconfig);
 
 @NgModule({
   declarations: [

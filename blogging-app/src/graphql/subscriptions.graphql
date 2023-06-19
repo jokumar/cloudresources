@@ -3,13 +3,15 @@ subscription OnCreateBlog($filter: ModelSubscriptionBlogFilterInput) {
   onCreateBlog(filter: $filter) {
     id
     name
-    posts {
+    createdBy
+    comments {
       items {
         id
-        title
+        createdBy
+        content
         createdAt
         updatedAt
-        blogPostsId
+        blogCommentsId
       }
       nextToken
     }
@@ -21,13 +23,15 @@ subscription OnUpdateBlog($filter: ModelSubscriptionBlogFilterInput) {
   onUpdateBlog(filter: $filter) {
     id
     name
-    posts {
+    createdBy
+    comments {
       items {
         id
-        title
+        createdBy
+        content
         createdAt
         updatedAt
-        blogPostsId
+        blogCommentsId
       }
       nextToken
     }
@@ -39,176 +43,79 @@ subscription OnDeleteBlog($filter: ModelSubscriptionBlogFilterInput) {
   onDeleteBlog(filter: $filter) {
     id
     name
-    posts {
-      items {
-        id
-        title
-        createdAt
-        updatedAt
-        blogPostsId
-      }
-      nextToken
-    }
-    createdAt
-    updatedAt
-  }
-}
-subscription OnCreatePost($filter: ModelSubscriptionPostFilterInput) {
-  onCreatePost(filter: $filter) {
-    id
-    title
-    blog {
-      id
-      name
-      posts {
-        nextToken
-      }
-      createdAt
-      updatedAt
-    }
+    createdBy
     comments {
       items {
         id
+        createdBy
         content
         createdAt
         updatedAt
-        postCommentsId
+        blogCommentsId
       }
       nextToken
     }
     createdAt
     updatedAt
-    blogPostsId
-  }
-}
-subscription OnUpdatePost($filter: ModelSubscriptionPostFilterInput) {
-  onUpdatePost(filter: $filter) {
-    id
-    title
-    blog {
-      id
-      name
-      posts {
-        nextToken
-      }
-      createdAt
-      updatedAt
-    }
-    comments {
-      items {
-        id
-        content
-        createdAt
-        updatedAt
-        postCommentsId
-      }
-      nextToken
-    }
-    createdAt
-    updatedAt
-    blogPostsId
-  }
-}
-subscription OnDeletePost($filter: ModelSubscriptionPostFilterInput) {
-  onDeletePost(filter: $filter) {
-    id
-    title
-    blog {
-      id
-      name
-      posts {
-        nextToken
-      }
-      createdAt
-      updatedAt
-    }
-    comments {
-      items {
-        id
-        content
-        createdAt
-        updatedAt
-        postCommentsId
-      }
-      nextToken
-    }
-    createdAt
-    updatedAt
-    blogPostsId
   }
 }
 subscription OnCreateComment($filter: ModelSubscriptionCommentFilterInput) {
   onCreateComment(filter: $filter) {
     id
-    post {
+    createdBy
+    blog {
       id
-      title
-      blog {
-        id
-        name
-        createdAt
-        updatedAt
-      }
+      name
+      createdBy
       comments {
         nextToken
       }
       createdAt
       updatedAt
-      blogPostsId
     }
     content
     createdAt
     updatedAt
-    postCommentsId
+    blogCommentsId
   }
 }
 subscription OnUpdateComment($filter: ModelSubscriptionCommentFilterInput) {
   onUpdateComment(filter: $filter) {
     id
-    post {
+    createdBy
+    blog {
       id
-      title
-      blog {
-        id
-        name
-        createdAt
-        updatedAt
-      }
+      name
+      createdBy
       comments {
         nextToken
       }
       createdAt
       updatedAt
-      blogPostsId
     }
     content
     createdAt
     updatedAt
-    postCommentsId
+    blogCommentsId
   }
 }
 subscription OnDeleteComment($filter: ModelSubscriptionCommentFilterInput) {
   onDeleteComment(filter: $filter) {
     id
-    post {
+    createdBy
+    blog {
       id
-      title
-      blog {
-        id
-        name
-        createdAt
-        updatedAt
-      }
+      name
+      createdBy
       comments {
         nextToken
       }
       createdAt
       updatedAt
-      blogPostsId
     }
     content
     createdAt
     updatedAt
-    postCommentsId
+    blogCommentsId
   }
 }

@@ -5,18 +5,14 @@ input AMPLIFY { globalAuthRule: AuthRule = { allow: public } } # FOR TESTING ONL
 type Blog @model @auth(rules: [{ allow: public }]){
   id: ID!
   name: String!
-  posts: [Post] @hasMany
-}
-
-type Post @model @auth(rules: [{ allow: public }]){
-  id: ID!
-  title: String!
-  blog: Blog @belongsTo
+  createdBy: String!
   comments: [Comment] @hasMany
 }
 
+
 type Comment @model @auth(rules: [{ allow: public }]){
   id: ID!
-  post: Post @belongsTo
+  createdBy: String!
+  blog: Blog @belongsTo
   content: String!
 }
