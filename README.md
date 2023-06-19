@@ -1,6 +1,6 @@
 # BloggingApp
 
-This is a blogging application built using AWS Amplify , AngularJS and Dynamo DB 
+This is a blogging application built using AWS Amplify , GraphQL , AngularJS and Dynamo DB 
 
 ## Development server
 
