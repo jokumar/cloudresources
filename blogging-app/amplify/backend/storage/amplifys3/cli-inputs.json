@@ -1,0 +1,13 @@
+{
+  "resourceName": "amplifys3",
+  "policyUUID": "5770dc54",
+  "bucketName": "bloggingapp-images",
+  "storageAccess": "auth",
+  "guestAccess": [],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ"
+  ],
+  "triggerFunction": "NONE",
+  "groupAccess": {}
+}

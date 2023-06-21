@@ -17,6 +17,33 @@
       },
       "auth": {
         "bloggingapp3ec5fceb": {}
+      },
+      "storage": {
+        "amplifys3": {}
+      }
+    }
+  },
+  "develop": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-bloggingapp-develop-114957-authRole",
+      "UnauthRoleArn": "arn:aws:iam::561833867073:role/amplify-bloggingapp-develop-114957-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::561833867073:role/amplify-bloggingapp-develop-114957-authRole",
+      "Region": "eu-west-1",
+      "DeploymentBucketName": "amplify-bloggingapp-develop-114957-deployment",
+      "UnauthRoleName": "amplify-bloggingapp-develop-114957-unauthRole",
+      "StackName": "amplify-bloggingapp-develop-114957",
+      "StackId": "arn:aws:cloudformation:eu-west-1:561833867073:stack/amplify-bloggingapp-develop-114957/5d7c0c80-1021-11ee-a77c-0aa4e66565a9",
+      "AmplifyAppId": "dgx7l8rucclpf"
+    },
+    "categories": {
+      "auth": {
+        "bloggingapp3ec5fceb": {}
+      },
+      "api": {
+        "bloggingapp": {}
+      },
+      "storage": {
+        "amplifys3": {}
       }
     }
   }

@@ -20,12 +20,16 @@ export type __SubscriptionContainer = {
 
 export type CreateBlogInput = {
   id?: string | null;
-  name: string;
+  title: string;
+  content: string;
+  imageUrl?: string | null;
   createdBy: string;
 };
 
 export type ModelBlogConditionInput = {
-  name?: ModelStringInput | null;
+  title?: ModelStringInput | null;
+  content?: ModelStringInput | null;
+  imageUrl?: ModelStringInput | null;
   createdBy?: ModelStringInput | null;
   and?: Array<ModelBlogConditionInput | null> | null;
   or?: Array<ModelBlogConditionInput | null> | null;
@@ -74,7 +78,9 @@ export type ModelSizeInput = {
 export type Blog = {
   __typename: "Blog";
   id: string;
-  name: string;
+  title: string;
+  content: string;
+  imageUrl?: string | null;
   createdBy: string;
   comments?: ModelCommentConnection | null;
   createdAt: string;
@@ -100,7 +106,9 @@ export type Comment = {
 
 export type UpdateBlogInput = {
   id: string;
-  name?: string | null;
+  title?: string | null;
+  content?: string | null;
+  imageUrl?: string | null;
   createdBy?: string | null;
 };
 
@@ -153,7 +161,9 @@ export type DeleteCommentInput = {
 
 export type ModelBlogFilterInput = {
   id?: ModelIDInput | null;
-  name?: ModelStringInput | null;
+  title?: ModelStringInput | null;
+  content?: ModelStringInput | null;
+  imageUrl?: ModelStringInput | null;
   createdBy?: ModelStringInput | null;
   and?: Array<ModelBlogFilterInput | null> | null;
   or?: Array<ModelBlogFilterInput | null> | null;
@@ -178,7 +188,9 @@ export type ModelCommentFilterInput = {
 
 export type ModelSubscriptionBlogFilterInput = {
   id?: ModelSubscriptionIDInput | null;
-  name?: ModelSubscriptionStringInput | null;
+  title?: ModelSubscriptionStringInput | null;
+  content?: ModelSubscriptionStringInput | null;
+  imageUrl?: ModelSubscriptionStringInput | null;
   createdBy?: ModelSubscriptionStringInput | null;
   and?: Array<ModelSubscriptionBlogFilterInput | null> | null;
   or?: Array<ModelSubscriptionBlogFilterInput | null> | null;
@@ -225,7 +237,9 @@ export type ModelSubscriptionCommentFilterInput = {
 export type CreateBlogMutation = {
   __typename: "Blog";
   id: string;
-  name: string;
+  title: string;
+  content: string;
+  imageUrl?: string | null;
   createdBy: string;
   comments?: {
     __typename: "ModelCommentConnection";
@@ -247,7 +261,9 @@ export type CreateBlogMutation = {
 export type UpdateBlogMutation = {
   __typename: "Blog";
   id: string;
-  name: string;
+  title: string;
+  content: string;
+  imageUrl?: string | null;
   createdBy: string;
   comments?: {
     __typename: "ModelCommentConnection";
@@ -269,7 +285,9 @@ export type UpdateBlogMutation = {
 export type DeleteBlogMutation = {
   __typename: "Blog";
   id: string;
-  name: string;
+  title: string;
+  content: string;
+  imageUrl?: string | null;
   createdBy: string;
   comments?: {
     __typename: "ModelCommentConnection";
@@ -295,7 +313,9 @@ export type CreateCommentMutation = {
   blog?: {
     __typename: "Blog";
     id: string;
-    name: string;
+    title: string;
+    content: string;
+    imageUrl?: string | null;
     createdBy: string;
     comments?: {
       __typename: "ModelCommentConnection";
@@ -317,7 +337,9 @@ export type UpdateCommentMutation = {
   blog?: {
     __typename: "Blog";
     id: string;
-    name: string;
+    title: string;
+    content: string;
+    imageUrl?: string | null;
     createdBy: string;
     comments?: {
       __typename: "ModelCommentConnection";
@@ -339,7 +361,9 @@ export type DeleteCommentMutation = {
   blog?: {
     __typename: "Blog";
     id: string;
-    name: string;
+    title: string;
+    content: string;
+    imageUrl?: string | null;
     createdBy: string;
     comments?: {
       __typename: "ModelCommentConnection";
@@ -357,7 +381,9 @@ export type DeleteCommentMutation = {
 export type GetBlogQuery = {
   __typename: "Blog";
   id: string;
-  name: string;
+  title: string;
+  content: string;
+  imageUrl?: string | null;
   createdBy: string;
   comments?: {
     __typename: "ModelCommentConnection";
@@ -381,7 +407,9 @@ export type ListBlogsQuery = {
   items: Array<{
     __typename: "Blog";
     id: string;
-    name: string;
+    title: string;
+    content: string;
+    imageUrl?: string | null;
     createdBy: string;
     comments?: {
       __typename: "ModelCommentConnection";
@@ -400,7 +428,9 @@ export type GetCommentQuery = {
   blog?: {
     __typename: "Blog";
     id: string;
-    name: string;
+    title: string;
+    content: string;
+    imageUrl?: string | null;
     createdBy: string;
     comments?: {
       __typename: "ModelCommentConnection";
@@ -424,7 +454,9 @@ export type ListCommentsQuery = {
     blog?: {
       __typename: "Blog";
       id: string;
-      name: string;
+      title: string;
+      content: string;
+      imageUrl?: string | null;
       createdBy: string;
       createdAt: string;
       updatedAt: string;
@@ -440,7 +472,9 @@ export type ListCommentsQuery = {
 export type OnCreateBlogSubscription = {
   __typename: "Blog";
   id: string;
-  name: string;
+  title: string;
+  content: string;
+  imageUrl?: string | null;
   createdBy: string;
   comments?: {
     __typename: "ModelCommentConnection";
@@ -462,7 +496,9 @@ export type OnCreateBlogSubscription = {
 export type OnUpdateBlogSubscription = {
   __typename: "Blog";
   id: string;
-  name: string;
+  title: string;
+  content: string;
+  imageUrl?: string | null;
   createdBy: string;
   comments?: {
     __typename: "ModelCommentConnection";
@@ -484,7 +520,9 @@ export type OnUpdateBlogSubscription = {
 export type OnDeleteBlogSubscription = {
   __typename: "Blog";
   id: string;
-  name: string;
+  title: string;
+  content: string;
+  imageUrl?: string | null;
   createdBy: string;
   comments?: {
     __typename: "ModelCommentConnection";
@@ -510,7 +548,9 @@ export type OnCreateCommentSubscription = {
   blog?: {
     __typename: "Blog";
     id: string;
-    name: string;
+    title: string;
+    content: string;
+    imageUrl?: string | null;
     createdBy: string;
     comments?: {
       __typename: "ModelCommentConnection";
@@ -532,7 +572,9 @@ export type OnUpdateCommentSubscription = {
   blog?: {
     __typename: "Blog";
     id: string;
-    name: string;
+    title: string;
+    content: string;
+    imageUrl?: string | null;
     createdBy: string;
     comments?: {
       __typename: "ModelCommentConnection";
@@ -554,7 +596,9 @@ export type OnDeleteCommentSubscription = {
   blog?: {
     __typename: "Blog";
     id: string;
-    name: string;
+    title: string;
+    content: string;
+    imageUrl?: string | null;
     createdBy: string;
     comments?: {
       __typename: "ModelCommentConnection";
@@ -581,7 +625,9 @@ export class APIService {
         createBlog(input: $input, condition: $condition) {
           __typename
           id
-          name
+          title
+          content
+          imageUrl
           createdBy
           comments {
             __typename
@@ -619,7 +665,9 @@ export class APIService {
         updateBlog(input: $input, condition: $condition) {
           __typename
           id
-          name
+          title
+          content
+          imageUrl
           createdBy
           comments {
             __typename
@@ -657,7 +705,9 @@ export class APIService {
         deleteBlog(input: $input, condition: $condition) {
           __typename
           id
-          name
+          title
+          content
+          imageUrl
           createdBy
           comments {
             __typename
@@ -699,7 +749,9 @@ export class APIService {
           blog {
             __typename
             id
-            name
+            title
+            content
+            imageUrl
             createdBy
             comments {
               __typename
@@ -737,7 +789,9 @@ export class APIService {
           blog {
             __typename
             id
-            name
+            title
+            content
+            imageUrl
             createdBy
             comments {
               __typename
@@ -775,7 +829,9 @@ export class APIService {
           blog {
             __typename
             id
-            name
+            title
+            content
+            imageUrl
             createdBy
             comments {
               __typename
@@ -806,7 +862,9 @@ export class APIService {
         getBlog(id: $id) {
           __typename
           id
-          name
+          title
+          content
+          imageUrl
           createdBy
           comments {
             __typename
@@ -844,7 +902,9 @@ export class APIService {
           items {
             __typename
             id
-            name
+            title
+            content
+            imageUrl
             createdBy
             comments {
               __typename
@@ -880,7 +940,9 @@ export class APIService {
           blog {
             __typename
             id
-            name
+            title
+            content
+            imageUrl
             createdBy
             comments {
               __typename
@@ -918,7 +980,9 @@ export class APIService {
             blog {
               __typename
               id
-              name
+              title
+              content
+              imageUrl
               createdBy
               createdAt
               updatedAt
@@ -955,7 +1019,9 @@ export class APIService {
         onCreateBlog(filter: $filter) {
           __typename
           id
-          name
+          title
+          content
+          imageUrl
           createdBy
           comments {
             __typename
@@ -994,7 +1060,9 @@ export class APIService {
         onUpdateBlog(filter: $filter) {
           __typename
           id
-          name
+          title
+          content
+          imageUrl
           createdBy
           comments {
             __typename
@@ -1033,7 +1101,9 @@ export class APIService {
         onDeleteBlog(filter: $filter) {
           __typename
           id
-          name
+          title
+          content
+          imageUrl
           createdBy
           comments {
             __typename
@@ -1076,7 +1146,9 @@ export class APIService {
           blog {
             __typename
             id
-            name
+            title
+            content
+            imageUrl
             createdBy
             comments {
               __typename
@@ -1115,7 +1187,9 @@ export class APIService {
           blog {
             __typename
             id
-            name
+            title
+            content
+            imageUrl
             createdBy
             comments {
               __typename
@@ -1154,7 +1228,9 @@ export class APIService {
           blog {
             __typename
             id
-            name
+            title
+            content
+            imageUrl
             createdBy
             comments {
               __typename
