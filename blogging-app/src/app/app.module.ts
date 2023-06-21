@@ -8,11 +8,12 @@ import { AppComponent } from './app.component';
 import { BlogsComponent } from './blogs/blogs.component';
 import awsconfig from '../aws-exports';
 import { Amplify, Auth } from 'aws-amplify';
+import { BlogDetailsComponent } from './blog-details/blog-details.component';
 Amplify.configure(awsconfig);
 
 @NgModule({
   declarations: [
-    AppComponent,BlogsComponent
+    AppComponent,BlogsComponent, BlogDetailsComponent
   ],
   imports: [
     BrowserModule,

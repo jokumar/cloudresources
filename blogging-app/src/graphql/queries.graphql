@@ -2,7 +2,9 @@
 query GetBlog($id: ID!) {
   getBlog(id: $id) {
     id
-    name
+    title
+    content
+    imageUrl
     createdBy
     comments {
       items {
@@ -27,7 +29,9 @@ query ListBlogs(
   listBlogs(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
-      name
+      title
+      content
+      imageUrl
       createdBy
       comments {
         nextToken
@@ -44,7 +48,9 @@ query GetComment($id: ID!) {
     createdBy
     blog {
       id
-      name
+      title
+      content
+      imageUrl
       createdBy
       comments {
         nextToken
@@ -69,7 +75,9 @@ query ListComments(
       createdBy
       blog {
         id
-        name
+        title
+        content
+        imageUrl
         createdBy
         createdAt
         updatedAt

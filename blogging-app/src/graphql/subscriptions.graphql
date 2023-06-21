@@ -2,7 +2,9 @@
 subscription OnCreateBlog($filter: ModelSubscriptionBlogFilterInput) {
   onCreateBlog(filter: $filter) {
     id
-    name
+    title
+    content
+    imageUrl
     createdBy
     comments {
       items {
@@ -22,7 +24,9 @@ subscription OnCreateBlog($filter: ModelSubscriptionBlogFilterInput) {
 subscription OnUpdateBlog($filter: ModelSubscriptionBlogFilterInput) {
   onUpdateBlog(filter: $filter) {
     id
-    name
+    title
+    content
+    imageUrl
     createdBy
     comments {
       items {
@@ -42,7 +46,9 @@ subscription OnUpdateBlog($filter: ModelSubscriptionBlogFilterInput) {
 subscription OnDeleteBlog($filter: ModelSubscriptionBlogFilterInput) {
   onDeleteBlog(filter: $filter) {
     id
-    name
+    title
+    content
+    imageUrl
     createdBy
     comments {
       items {
@@ -65,7 +71,9 @@ subscription OnCreateComment($filter: ModelSubscriptionCommentFilterInput) {
     createdBy
     blog {
       id
-      name
+      title
+      content
+      imageUrl
       createdBy
       comments {
         nextToken
@@ -85,7 +93,9 @@ subscription OnUpdateComment($filter: ModelSubscriptionCommentFilterInput) {
     createdBy
     blog {
       id
-      name
+      title
+      content
+      imageUrl
       createdBy
       comments {
         nextToken
@@ -105,7 +115,9 @@ subscription OnDeleteComment($filter: ModelSubscriptionCommentFilterInput) {
     createdBy
     blog {
       id
-      name
+      title
+      content
+      imageUrl
       createdBy
       comments {
         nextToken

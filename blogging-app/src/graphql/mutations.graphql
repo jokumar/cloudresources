@@ -5,7 +5,9 @@ mutation CreateBlog(
 ) {
   createBlog(input: $input, condition: $condition) {
     id
-    name
+    title
+    content
+    imageUrl
     createdBy
     comments {
       items {
@@ -28,7 +30,9 @@ mutation UpdateBlog(
 ) {
   updateBlog(input: $input, condition: $condition) {
     id
-    name
+    title
+    content
+    imageUrl
     createdBy
     comments {
       items {
@@ -51,7 +55,9 @@ mutation DeleteBlog(
 ) {
   deleteBlog(input: $input, condition: $condition) {
     id
-    name
+    title
+    content
+    imageUrl
     createdBy
     comments {
       items {
@@ -77,7 +83,9 @@ mutation CreateComment(
     createdBy
     blog {
       id
-      name
+      title
+      content
+      imageUrl
       createdBy
       comments {
         nextToken
@@ -100,7 +108,9 @@ mutation UpdateComment(
     createdBy
     blog {
       id
-      name
+      title
+      content
+      imageUrl
       createdBy
       comments {
         nextToken
@@ -123,7 +133,9 @@ mutation DeleteComment(
     createdBy
     blog {
       id
-      name
+      title
+      content
+      imageUrl
       createdBy
       comments {
         nextToken

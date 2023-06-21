@@ -4,8 +4,8 @@ import { APIService, Blog } from '../API.service';
 
 /** Subscription type will be inferred from this library */
 import { ZenObservable } from 'zen-observable-ts';
-import { Amplify, Auth } from 'aws-amplify';
-
+import { Amplify, Auth, Storage } from 'aws-amplify';
+import { v4 as uuidv4 } from 'uuid';
 
 
 @Component({
@@ -25,12 +25,14 @@ export class BlogsComponent implements OnInit, OnDestroy {
   blogSize = 2; // Number of items to display per page
   showReadMoreButton = true; // Flag to control the visibility of the "Read More" button
 
+  selectedFile: File | null = null;
 
 
   constructor(private api: APIService, private fb: FormBuilder) {
     this.createForm = this.fb.group({
       id: ['', Validators.required],
-      name: ['', Validators.required]
+      title: ['', Validators.required],
+      content: ['', Validators.required]
     });
 
   }
@@ -50,16 +52,30 @@ export class BlogsComponent implements OnInit, OnDestroy {
     this.blogSize= this.blogSize +2;
     this.loadItems();
   }
-  public onCreate(blog: Blog) {
+  public async onCreate(blog: Blog) {
     Auth.currentAuthenticatedUser().then((cognitoUsr)=> {
       blog.createdBy = cognitoUsr.getUsername()
       console.log("INFO: ",cognitoUsr.getUsername())
     }).catch((err) => console.log("error: ",err));
    
+    blog.id = uuidv4();
+    //upload image 
+    if (this.selectedFile) {
+      const timestamp = new Date().getTime();
+      const filename = timestamp+ '_'+uuidv4()+"_"+this.selectedFile.name;
+      // Perform the image upload here using the selectedFile
+      this.uploadImage(this.selectedFile,filename);  
+      blog.imageUrl = await Storage.get(filename);
+    } else {
+      // Handle the case where no file is selected
+      console.log('No file selected');
+    }
+
     this.api
       .CreateBlog(blog)
       .then(() => {
         console.log('blog created!');
+        
         this.createForm.reset();
       })
       .catch((e) => {
@@ -86,6 +102,23 @@ export class BlogsComponent implements OnInit, OnDestroy {
     this.subscription = null;
   }
 
+
+  onFileSelected(event: any) {
+    this.selectedFile = event.target.files[0];
+  }
+
  
+  async uploadImage(file: File,  filename: string) {
+    try {
+     
+      
+      const result = await Storage.put(filename, file);
+     
+      console.log('Image uploaded successfully:', result);
+    } catch (error) {
+      console.error('Error uploading image:', error);
+    }
+  }
+
 
 }
