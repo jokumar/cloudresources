@@ -1,0 +1,133 @@
+# this is an auto generated file. This will be overwritten
+subscription OnCreateBlog($filter: ModelSubscriptionBlogFilterInput) {
+  onCreateBlog(filter: $filter) {
+    id
+    title
+    content
+    imageUrl
+    createdBy
+    comments {
+      items {
+        id
+        createdBy
+        content
+        createdAt
+        updatedAt
+        blogCommentsId
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateBlog($filter: ModelSubscriptionBlogFilterInput) {
+  onUpdateBlog(filter: $filter) {
+    id
+    title
+    content
+    imageUrl
+    createdBy
+    comments {
+      items {
+        id
+        createdBy
+        content
+        createdAt
+        updatedAt
+        blogCommentsId
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteBlog($filter: ModelSubscriptionBlogFilterInput) {
+  onDeleteBlog(filter: $filter) {
+    id
+    title
+    content
+    imageUrl
+    createdBy
+    comments {
+      items {
+        id
+        createdBy
+        content
+        createdAt
+        updatedAt
+        blogCommentsId
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnCreateComment($filter: ModelSubscriptionCommentFilterInput) {
+  onCreateComment(filter: $filter) {
+    id
+    createdBy
+    blog {
+      id
+      title
+      content
+      imageUrl
+      createdBy
+      comments {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    content
+    createdAt
+    updatedAt
+    blogCommentsId
+  }
+}
+subscription OnUpdateComment($filter: ModelSubscriptionCommentFilterInput) {
+  onUpdateComment(filter: $filter) {
+    id
+    createdBy
+    blog {
+      id
+      title
+      content
+      imageUrl
+      createdBy
+      comments {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    content
+    createdAt
+    updatedAt
+    blogCommentsId
+  }
+}
+subscription OnDeleteComment($filter: ModelSubscriptionCommentFilterInput) {
+  onDeleteComment(filter: $filter) {
+    id
+    createdBy
+    blog {
+      id
+      title
+      content
+      imageUrl
+      createdBy
+      comments {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    content
+    createdAt
+    updatedAt
+    blogCommentsId
+  }
+}
